@@ -4,6 +4,8 @@ set -e
 
 PGPASS="/run/postgresql/.pgpass"
 
+mkdir -p /run/postgresql
+
 echo "${HOST}:${PORT}:${DATABASE}:${USER}:${PASSWORD}" > $PGPASS
 
 chmod 0600 $PGPASS
