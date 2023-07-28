@@ -2,6 +2,6 @@
 
 set -e
 
-echo "${HOST}:${PORT}:${USER}:${PASSWORD}" > ~/.pgpass
+echo "${HOST}:${PORT}:${DATABASE}:${USER}:${PASSWORD}" > ~/.pgpass
 
 pg_dumpall ${DUMP_FLAGS} | psql "${DST_POSTGRES}"
