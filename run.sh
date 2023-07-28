@@ -2,8 +2,10 @@
 
 set -e
 
-echo "${HOST}:${PORT}:${DATABASE}:${USER}:${PASSWORD}" > ~/.pgpass
+PGPASS="/run/postgresql/.pgpass"
 
-chmod 0600 ~/.pgpass
+echo "${HOST}:${PORT}:${DATABASE}:${USER}:${PASSWORD}" > $PGPASS
+
+chmod 0600 $PGPASS
 
 pg_dumpall ${DUMP_FLAGS} | psql "${DST_POSTGRES}"
