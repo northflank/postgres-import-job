@@ -2,4 +2,6 @@
 
 set -e
 
-pg_dump ${DUMP_FLAGS} "${SRC_POSTGRES}" | psql "${DST_POSTGRES}"
+echo "${PASSWORD}" > ~/.pgpass
+
+pg_dumpall ${DUMP_FLAGS} "${SRC_POSTGRES}" | psql "${DST_POSTGRES}"
