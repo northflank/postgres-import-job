@@ -4,6 +4,6 @@ WORKDIR /app
 
 COPY . .
 
-RUN chmod +x run.sh && apk add postgresql-client
+RUN chmod +x *.sh && apk add postgresql-client
 
 ENTRYPOINT ["./run.sh"]
